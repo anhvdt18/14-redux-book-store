@@ -38,3 +38,18 @@ export const newBooksList = createAsyncThunk(
     return response.data;
   }
 );
+
+export const doPostData =
+  ({ addingBook }) =>
+  async (dispatch) => {
+    const response = await api.post(`/favorites`, addingBook);
+    console.log(response, "response here");
+    return response.data;
+  };
+
+export const getBook =
+  ({ bookId }) =>
+  async (dispatch) => {
+    const response = await api.get(`/books/${bookId}`);
+    return response;
+  };
